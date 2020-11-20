@@ -6,7 +6,6 @@ public class BSTtest
 {
     public static void main(String[] args)
     {
-        //TODO CHANGE CLASS AS NEEDED TO TEST CODE
         BST<Integer> tree = new BST<Integer>();
         tree.insert(5);
         tree.insert(2);
@@ -16,7 +15,12 @@ public class BSTtest
         tree.print();
         System.out.println();
         System.out.println(tree.toString());
-        System.out.println(tree.rangeSum(1, 4));
+        System.out.println(tree.rangeSum(1, 7) + "\n");
+
+        tree.delete(5);
+        tree.print();
+        System.out.println("\n"+tree.toString());
+        System.out.println(tree.rangeSum(1, 7) + "\n");
 
 //        int L = Integer.parseInt(args[0]);
 //        int R = Integer.parseInt(args[1]);

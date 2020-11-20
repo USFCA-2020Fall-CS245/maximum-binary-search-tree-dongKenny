@@ -142,21 +142,23 @@ public class BST<T extends Comparable<T>>
                     node.data = node.right.data;
                     node.right = node.right.right;
                 }
-//                else {
-//                    node.data = removeSmallest(node.right.left);
-//                }
-//
-//            }
-//        }
-//    }
-//
-//    int removeSmallest(Node node) {
-//
-//
-//    }
+                else {
+                    node.data = removeSmallest(node.right.left);
+                }
+                return node;
             }
         }
-        return null;
+    }
+
+    T removeSmallest(Node node) {
+        if (node.left.left == null) {
+            T smallest = (T) node.left.data;
+            node.left = node.left.right;
+            return smallest;
+        }
+        else {
+            return (T) removeSmallest(node.left);
+        }
     }
 
     /*
@@ -177,17 +179,16 @@ public class BST<T extends Comparable<T>>
     }
 
     private void rangeSum(Node<T> node, int L, int R, ArrayList<Integer> list) {
-        // L <= data <= R
         if (node != null) {
             if (node.data instanceof Integer) {
-                if (node.data.compareTo((T) (Object) L) >= 0 && node.data.compareTo((T) (Object) R) <= 0) {
+                if (node.data.compareTo((T) (Object) L) >= 0 && node.data.compareTo((T) (Object) R) <= 0) { // L <= data <= R
                     int value = Integer.parseInt(node.data.toString());
                     list.add(value);
                 }
-                if (node.data.compareTo((T) (Object) L) > 0) {
+                if (node.data.compareTo((T) (Object) L) > 0) { // L < data
                     rangeSum(node.left, L, R, list);
                 }
-                if (node.data.compareTo((T) (Object) R) < 0) {
+                if (node.data.compareTo((T) (Object) R) < 0) { // data < R
                     rangeSum(node.right, L, R, list);
                 }
             }
