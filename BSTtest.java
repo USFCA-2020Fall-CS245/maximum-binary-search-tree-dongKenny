@@ -22,6 +22,16 @@ public class BSTtest
         System.out.println("\n"+tree.toString());
         System.out.println(tree.rangeSum(1, 7) + "\n");
 
+
+        BST<String> tS = new BST<String>();
+        tS.insert("a");
+        tS.insert("b");
+        tS.insert("c");
+        tS.insert("d");
+        tS.insert("e");
+        tS.print();
+        System.out.println(tS.toString());
+        System.out.println(tS.rangeSum(0, 10));
 //        int L = Integer.parseInt(args[0]);
 //        int R = Integer.parseInt(args[1]);
 //        for(int i=2; i < args.length; i++)

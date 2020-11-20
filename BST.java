@@ -192,6 +192,9 @@ public class BST<T extends Comparable<T>>
                     rangeSum(node.right, L, R, list);
                 }
             }
+            else {
+                System.out.println("Cannot do rangeSum on non-integer trees.");
+            }
         }
     }
 
