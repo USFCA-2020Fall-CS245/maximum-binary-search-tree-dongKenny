@@ -58,9 +58,11 @@ public class BST<T extends Comparable<T>>
     */
     private boolean find(T item, Node<T> node)
     {
+        //Leaf node, false
         if (node == null) {
             return false;
         }
+        //item equals found node data
         else if (item.compareTo(node.data) == 0) {
             return true;
         }
@@ -179,6 +181,9 @@ public class BST<T extends Comparable<T>>
     }
 
     private void rangeSum(Node<T> node, int L, int R, ArrayList<Integer> list) {
+        //Check if node is null
+        //Input validation to check if it is an int
+        //Add if in range, traverse left if L < data, right if data < R
         if (node != null) {
             if (node.data instanceof Integer) {
                 if (node.data.compareTo((T) (Object) L) >= 0 && node.data.compareTo((T) (Object) R) <= 0) { // L <= data <= R
@@ -193,7 +198,7 @@ public class BST<T extends Comparable<T>>
                 }
             }
             else {
-                System.out.println("Cannot do rangeSum on non-integer trees.");
+                System.out.println("Cannot do rangeSum on non-Integer values.");
             }
         }
     }
@@ -212,6 +217,7 @@ public class BST<T extends Comparable<T>>
      */
     private void print(Node<T> root)
     {
+        //Print the in-order traversal
         if (root != null) {
             print(root.left);
             System.out.print(root.data + " ");
@@ -219,6 +225,7 @@ public class BST<T extends Comparable<T>>
         }
     }
 
+    //toString will print left in () and right in [], nested if subtrees
     @Override
     public String toString() {
         if (this.root == null) {
